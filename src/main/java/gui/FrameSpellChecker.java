@@ -2,14 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package myprojects.spellingchecker;
+package gui;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import myprojects.spellingchecker.SpellCheck;
 
 /**
  *
@@ -47,6 +49,7 @@ public class FrameSpellChecker extends javax.swing.JFrame {
         btncheckSpelling = new javax.swing.JButton();
         btnCleanWorkSheet = new javax.swing.JButton();
         btnAddToDictionary = new javax.swing.JButton();
+        btnCheckDictionary = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         lstMisspelledWords = new javax.swing.JList<>();
@@ -100,6 +103,13 @@ public class FrameSpellChecker extends javax.swing.JFrame {
             }
         });
 
+        btnCheckDictionary.setText("Check dictionary");
+        btnCheckDictionary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckDictionaryActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlButtonsLayout = new javax.swing.GroupLayout(pnlButtons);
         pnlButtons.setLayout(pnlButtonsLayout);
         pnlButtonsLayout.setHorizontalGroup(
@@ -109,9 +119,11 @@ public class FrameSpellChecker extends javax.swing.JFrame {
                 .addComponent(btncheckSpelling)
                 .addGap(117, 117, 117)
                 .addComponent(btnCleanWorkSheet)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(67, 67, 67)
                 .addComponent(btnAddToDictionary)
-                .addGap(72, 72, 72))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCheckDictionary)
+                .addGap(50, 50, 50))
         );
         pnlButtonsLayout.setVerticalGroup(
             pnlButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -120,7 +132,8 @@ public class FrameSpellChecker extends javax.swing.JFrame {
                 .addGroup(pnlButtonsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btncheckSpelling)
                     .addComponent(btnCleanWorkSheet)
-                    .addComponent(btnAddToDictionary))
+                    .addComponent(btnAddToDictionary)
+                    .addComponent(btnCheckDictionary))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -226,6 +239,16 @@ public class FrameSpellChecker extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddToDictionaryActionPerformed
 
+    private void btnCheckDictionaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckDictionaryActionPerformed
+        
+        SpellCheck sc = new SpellCheck();
+        sc.checkDictionary();
+        
+        FrameDictionary fr = new FrameDictionary();
+        fr.setLocationRelativeTo(null);
+        fr.setVisible(rootPaneCheckingEnabled);
+    }//GEN-LAST:event_btnCheckDictionaryActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,6 +287,7 @@ public class FrameSpellChecker extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddToDictionary;
+    private javax.swing.JButton btnCheckDictionary;
     private javax.swing.JButton btnCleanWorkSheet;
     private javax.swing.JButton btncheckSpelling;
     private javax.swing.JLabel jLabel1;

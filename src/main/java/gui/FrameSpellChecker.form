@@ -115,9 +115,11 @@
                   <Component id="btncheckSpelling" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                   <Component id="btnCleanWorkSheet" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                   <Component id="btnAddToDictionary" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnCheckDictionary" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -129,6 +131,7 @@
                       <Component id="btncheckSpelling" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnCleanWorkSheet" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnAddToDictionary" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnCheckDictionary" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -158,6 +161,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddToDictionaryActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnCheckDictionary">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Check dictionary"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCheckDictionaryActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

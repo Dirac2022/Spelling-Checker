@@ -4,6 +4,8 @@
 
 package myprojects.spellingchecker;
 
+import gui.FrameSpellChecker;
+
 /**
  *
  * @author mitch

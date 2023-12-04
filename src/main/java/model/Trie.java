@@ -4,6 +4,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author mitch
@@ -345,50 +347,6 @@ public class Trie {
         }
     }
     
-    public String toString(){
-        
-        String result = "";
-        int depth = 0;
-        TrieNode p = root;
-        String prefix = "";
-        
-        if (p.isLeaf) {
-            for (int j = 1; j <= depth; j++) {
-                System.out.print(" ");
-                result += " ";
-            }
-            System.out.println(" >" + prefix + "|" + ((TrieLeaf) p).suffix);
-            result += " >" + prefix + "|" + ((TrieLeaf) p).suffix + "\n";
-        } else {
-            for (int i = ((TrieNonLeaf) p).letters.length() - 1; i >= 0; i--) {
-                if (((TrieNonLeaf) p).ptrs[i] != null) {
-                    // Agrega la letra correspondiente a la posición i al prefijo
-                    prefix = prefix.substring(0, depth)
-                            + ((TrieNonLeaf) p).letters.charAt(i);
-                    sideView(depth + 1, ((TrieNonLeaf) p).ptrs[i], prefix);
-                } else { // Si la hoja esta vacía          
-                    for (int j = 1; j <= depth + 1; j++) {
-                        System.out.print(" ");
-                    }
-                    System.out.println(" >>" + prefix.substring(0, depth)
-                            + ((TrieNonLeaf) p).letters.charAt(i));
-                    result += " >> " + prefix.substring(0, depth)
-                            + ((TrieNonLeaf)p).letters.charAt(i) + "\n";
-                }
-
-            }
-            if (((TrieNonLeaf) p).endOfWord) {
-                for (int j = 1; j <= depth + 1; j++) {
-                    System.out.print(" ");
-                    result +=  " ";
-                }
-                System.out.println(" >>" + prefix.substring(0, depth));
-                result += " >>" + prefix.substring(0, depth) + "\n";
-            }
-        }
-        
-        return result;
-    }
 
 }
 

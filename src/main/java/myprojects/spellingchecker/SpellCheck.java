@@ -170,12 +170,13 @@ public class SpellCheck {
     /**
     * Verifica la integridad del diccionario.
     */
-    public void checkDictionary() {
+    public ArrayList<String> checkDictionary() {
         
        InputStream dictionary;
        Trie trie = null;
        ch = ' ';
        lineNum = 1;
+       ArrayList<String> dictionaryList = new ArrayList<>();
        
         try {
             dictionary = new FileInputStream("C:\\Users\\mitch\\OneDrive\\Documentos\\NetBeansProjects\\232CC232Project\\src\\main\\java\\uni\\aed\\spellChecker\\dictionary");
@@ -187,15 +188,15 @@ public class SpellCheck {
                 if (ch == -1)
                     break;
                 trie.insert(s);
+                dictionaryList.add(s);
             }
 
             dictionary.close();
         } catch (IOException io) {
             System.err.println("Cannot open dictionary");
         }
-        
-        System.out.println("\nTrie: ");
-        trie.printTrie();
+            
+        return dictionaryList;
     }
 }
     
